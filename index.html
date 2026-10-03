@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lista de Desejos · Amanda</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2l3 11 11 3-11 3-3 11-3-11-11-3 11-3z' fill='%23a5486b'/%3E%3C/svg%3E">
+</head>
+<body>
+  <!-- Fundo encantado -->
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="estrelas" aria-hidden="true"></div>
+  <div class="borboletas" aria-hidden="true"></div>
+  <canvas id="vagalumes" aria-hidden="true"></canvas>
+
+  <!-- ============ TELA DE SENHA ============ -->
+  <section id="portal" class="portal">
+    <div class="anel" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <path id="circ1" d="M200,200 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0"/>
+          <path id="circ2" d="M200,200 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/>
+        </defs>
+        <g class="anel-externo">
+          <circle cx="200" cy="200" r="178" class="linha"/>
+          <circle cx="200" cy="200" r="172" class="linha fina"/>
+          <text class="runas"><textPath href="#circ1">✦ desejos sussurrados ao vento ✦ guardados por fadas ✦ revelados a quem sabe a data ✦</textPath></text>
+        </g>
+        <g class="anel-interno">
+          <circle cx="200" cy="200" r="140" class="linha tracejada"/>
+          <text class="runas pequenas"><textPath href="#circ2">☾ · ✧ · ❀ · ✧ · ☽ · ✧ · ❀ · ✧ · ☾ · ✧ · ❀ · ✧ · ☽ · ✧ · ❀ · ✧ ·</textPath></text>
+        </g>
+      </svg>
+    </div>
+
+    <form id="formSenha" class="cartao-portal" autocomplete="off">
+      <div class="lua" aria-hidden="true"></div>
+      <p class="sobretitulo">um jardim encantado</p>
+      <h1>Sussurre a data mágica</h1>
+      <p class="dica">O dia em que a aniversariante chegou ao mundo.</p>
+      <label class="campo">
+        <span class="sr">Data de aniversário</span>
+        <input id="senha" type="text" inputmode="numeric" placeholder="dd / mm / aaaa" maxlength="10" aria-describedby="erro">
+      </label>
+      <button type="submit" class="botao">Entrar <span aria-hidden="true">✦</span></button>
+      <p id="erro" class="erro" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- ============ LISTA ============ -->
+  <main id="jardim" class="jardim" hidden>
+    <header class="topo">
+      <div class="asas" aria-hidden="true">
+        <svg viewBox="0 0 200 120">
+          <g class="asa esquerda">
+            <path d="M100 60 C 70 5, 15 0, 8 30 C 2 55, 45 62, 100 60 Z"/>
+            <path d="M100 62 C 70 70, 30 95, 42 112 C 55 125, 85 95, 100 62 Z"/>
+            <path class="veia" d="M100 60 C 70 35, 40 25, 20 28 M100 60 C 75 50, 45 45, 25 45 M100 62 C 80 80, 60 95, 48 106"/>
+          </g>
+          <g class="asa direita">
+            <path d="M100 60 C 130 5, 185 0, 192 30 C 198 55, 155 62, 100 60 Z"/>
+            <path d="M100 62 C 130 70, 170 95, 158 112 C 145 125, 115 95, 100 62 Z"/>
+            <path class="veia" d="M100 60 C 130 35, 160 25, 180 28 M100 60 C 125 50, 155 45, 175 45 M100 62 C 120 80, 140 95, 152 106"/>
+          </g>
+          <ellipse cx="100" cy="62" rx="2.4" ry="14" class="corpo"/>
+        </svg>
+      </div>
+      <p class="sobretitulo revelar">23 · novembro</p>
+      <h1 class="titulo revelar">
+        <span class="linha1">Lista de</span>
+        <span class="linha2">Desejos</span>
+      </h1>
+      <p class="subtitulo revelar">da <em>Amanda</em></p>
+      <svg class="ornamento revelar" viewBox="0 0 300 30" aria-hidden="true">
+        <path d="M0 15 H120 M180 15 H300"/>
+        <path d="M150 3 L156 15 L150 27 L144 15 Z"/>
+        <circle cx="130" cy="15" r="2"/><circle cx="170" cy="15" r="2"/>
+      </svg>
+      <p class="intro revelar">Se quiser me presentear, aqui estão algumas ideias que fariam meu coração brilhar. Clique em cada uma para ver onde encontrar.</p>
+    </header>
+
+    <section id="lista" class="lista" aria-label="Presentes"></section>
+    <p id="vazio" class="vazio" hidden>As fadas ainda estão escolhendo os desejos… volte em breve ✦</p>
+
+    <footer class="rodape">
+      <p>feito com pó de fada <span aria-hidden="true">✧</span></p>
+      <button id="sair" class="link-sair" type="button">trancar o jardim</button>
+    </footer>
+  </main>
+
+  <!-- Foto ampliada -->
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="fechar" type="button" aria-label="Fechar">×</button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+  </div>
+
+  <script src="presentes/lista.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
